@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Scientific Calculator</title>
+
+<style type="text/css">
+body {
+		margin: 0;
+		padding: 0;
+		font-family: sans-serif;
+		background: #ff6666;
+		 }
+h1 {
+	color: black;
+	font-size: 50px;
+	text-transform: uppercase ;
+	font-weight: 700;
+	text-align: center;
+	font-family: cursive;
+
+}
+
+h2 {
+	color: black;
+	font-size: 20px;
+    text-transform: uppercase ;
+	font-weight: 700;
+	text-align: center;
+	font-family: cursive;
+
+}
+
+
+.Calculator {
+		width: 420px;
+		padding: 15px 0px;
+		text-align: center;
+		position: absolute;
+		margin: 0px auto;
+		box-shadow: 0px 0px 16px #333333,
+		             7px 7px 7px rgba(0,0,0,16);
+		border-bottom: 5px solid #ffffff;
+        border-top: 5px solid #ffffff ;
+        border-left: 5px solid #ffffff ;
+        border-right: 5px solid #ffffff;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		background: #999966;
+		text-align: center;
+		border-radius: 20px;
+	     }
+
+.header #head {
+         width: 350px;
+         padding: 20px;
+         font-size: 25px;
+         font-weight: bold;
+         text-align: right;
+         box-shadow: 0px 0px 16px #333333,
+		             7px 7px 7px rgba(0,0,0,16);
+         border-radius: 10px;
+         border-bottom: 4px solid #ffffff;
+         border-top: 4px solid #ffffff ;
+         border-left: 4px solid #ffffff ;
+         border-right: 4px solid #ffffff;
+         letter-spacing: 2px;
+         background: #ff66cc;
+         
+         }	     
+.buttonstyle {
+	     width: 70px;
+	     height: 55px;
+	     font-weight: bold;
+	     font-size: 30px;
+	     background: #333333;
+	     border-radius: 8px;
+	     color:#ce954b;
+	     transition: 0.5s;
+	     font-family: cursive;
+}
+
+#id2 {
+	     width: 140px;
+	     height: 55px;
+	     font-weight: bold;
+	     font-size: 30px;
+	     background:#ff0000;
+	     border-radius: 8px ;
+	     border-color: white;
+	     color:#333333;
+	     transition: 0.5s;
+        } 
+
+
+
+</style>
+</head>
+
+
+<body>
+
+<div class="Calculator">
+
+<h1>Calculator</h1>
+<h2>made By Ritesh Gorle</h2>
+
+<form name="form">
+<div class="header">
+	<input type="text" name="head" id="head" maxlength="20" >
+</div> <br>
+
+<div>
+	<input id="id2" class="buttonstyle" type="button" value="CE" onclick="Clear()">
+	<input class="buttonstyle" type="button" value="&#8882" onclick="BACKSPC()">
+	<input class="buttonstyle" type="button" value="="onclick="Calculate()">
+	<input class="buttonstyle" type="button" value="/" onclick="valuebutton(this)">
+</div>
+
+<div>
+	<input class="buttonstyle" type="button" value="9" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="8" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="7" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="Sin" onclick="sin()">
+	<input class="buttonstyle" type="button" value="*" onclick="valuebutton(this)">
+</div>
+
+<div>
+	<input class="buttonstyle" type="button" value="6" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="5" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="4" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="Cos" onclick="cos()">
+	<input class="buttonstyle" type="button" value="-" onclick="valuebutton(this)">
+</div>
+
+<div>
+	<input class="buttonstyle" type="button" value="3" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="2" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="1" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="Tan" onclick="tan()">
+	<input class="buttonstyle" type="button" value="+" onclick="valuebutton(this)">
+</div>
+
+<div>
+	<input class="buttonstyle" type="button" value="." onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="0" onclick="valuebutton(this)">
+	<input class="buttonstyle" type="button" value="&#8730" onclick="sqrt2()"> 
+	<input class="buttonstyle" type="button" value="&#8731" onclick="sqrt3()">
+	<input class="buttonstyle" type="button" value="%" onclick="valuebutton(this)">
+	
+</div>
+
+
+
+</form>
+</div>
+
+
+<script type="text/javascript">
+
+	
+	function valuebutton(input) {
+		form.head.value += input.value;
+	}
+        
+
+   function Clear() {
+		form.head.value = null;
+	}
+
+	function Calculate() {
+		form.head.value = eval(form.head.value);
+	}
+
+  function sin(){
+	form.head.value =Math.sin(form.head.value);
+	}
+
+	function cos(){
+	form.head.value=Math.cos(form.head.value);
+	}
+
+	function tan(){
+	form.head.value=Math.tan(form.head.value);
+	}
+    
+    function BACKSPC(){
+	var a = form.head.value;
+	form.head.value = a.substr(0, a.length-1);
+	}
+
+    function sqrt2(){
+	form.head.value = Math.sqrt(form.head.value, 2);
+	}
+
+	function sqrt3(){
+	form.head.value = Math.cbrt(form.head.value, 1/3);
+	}
+
+
+</script>
+
+	
+</body>
+</html>
